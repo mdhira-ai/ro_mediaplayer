@@ -3,9 +3,9 @@ It's an amazing media player made with Tauri + Next.js. We are continually impro
 
 ## Features
 
-![alt text](https://github.com/mdhira-ai/ro_mediaplayer/blob/master/Pasted%20image%2020260612100340.png)
+![img1](https://github.com/mdhira-ai/ro_mediaplayer/blob/master/Pasted%20image%2020260612100340.png)
 
-![[Pasted image 20260612100558.png]]
+![img2](https://github.com/mdhira-ai/ro_mediaplayer/blob/master/Pasted%20image%2020260612100558.png)
 
 ## Getting Started
 
