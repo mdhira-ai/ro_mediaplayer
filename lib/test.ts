@@ -5,7 +5,7 @@ export const handleOpenLibrary = async () => {
   try {
     const libraryWindow = new WebviewWindow("libpage", {
       url: "/libpage",
-      title: "hello",
+      title: "Library",
     });
 
     libraryWindow.once("tauri://created", () => {
