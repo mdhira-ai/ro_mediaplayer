@@ -2,7 +2,10 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "enables the default permissions",
-  "windows": ["main", "libpage"],
+  "windows": [
+    "main",
+    "libpage"
+  ],
   "permissions": [
     "core:default",
     "core:window:allow-hide",
@@ -16,16 +19,34 @@
     "fs:allow-read-dir",
     "core:path:default",
     "fs:allow-applocaldata-read-recursive",
-
     "fs:scope-home-recursive",
     "fs:default",
     {
       "identifier": "fs:allow-exists",
-      "allow": [{ "path": "$APPLOCALDATA/*" }]
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/*"
+        }
+      ]
     },
     {
       "identifier": "fs:allow-read-dir",
-      "allow": [{ "path": "$APPDATA/**" }]
-    }
+      "allow": [
+        {
+          "path": "$APPDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "opener:allow-open-path",
+      "allow": [
+        {
+          "path": "custom:*"
+        }
+      ]
+    },
+    "opener:default",
+    "opener:allow-open-path",
+    "dialog:default"
   ]
 }

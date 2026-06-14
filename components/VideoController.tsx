@@ -12,16 +12,31 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Slider } from "@/components/ui/slider";
-import { handleOpenLibrary } from "@/lib/test";
+import { handleOpenLibrary, opendialog, videourl } from "@/lib/test";
+import {  useSetAtom } from "jotai";
+import React from "react";
 
-export default function VideoController() {
+
+interface props {
+  vidref: React.RefObject<HTMLVideoElement>
+}
+
+export default function VideoController({vidref}: props) {
+
+  const setvideopath = useSetAtom(videourl)
+
+  const handeplay = () => vidref.current?.play()
+
+
+
+
   return (
-    <div className="bg-slate-600 h-20 flex flex-row  px-2 justify-between items-center">
+    <div className="bg-slate-600 h-20 absolute bottom-0 right-0 left-0 flex flex-row  px-2 justify-between items-center">
       <Button variant="ghost" size="icon">
         <Rewind />
       </Button>
 
-      <Button variant="ghost" size="icon">
+      <Button onClick={handeplay} variant="ghost" size="icon">
         <Play />
       </Button>
 
@@ -61,7 +76,7 @@ export default function VideoController() {
         </Button>
       </div>
 
-      <Button variant={"ghost"} size={"icon"} onClick={handleOpenLibrary}>
+      <Button variant={"ghost"} size={"icon"} onClick={() => opendialog(setvideopath)}>
         <LibraryBig />
       </Button>
 
