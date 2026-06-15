@@ -13,22 +13,18 @@ import {
 import { Button } from "./ui/button";
 import { Slider } from "@/components/ui/slider";
 import { handleOpenLibrary, opendialog, videourl } from "@/lib/test";
-import {  useSetAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import React from "react";
 
-
 interface props {
-  vidref: React.RefObject<HTMLVideoElement>
+  vidref: React.RefObject<HTMLVideoElement>;
 }
 
-export default function VideoController({vidref}: props) {
+export default function VideoController({ vidref }: props) {
+  const setvideopath = useSetAtom(videourl);
 
-  const setvideopath = useSetAtom(videourl)
-
-  const handeplay = () => vidref.current?.play()
-
-
-
+  const handleplay = () => vidref.current?.play();
+  const handlepause = () => vidref.current?.pause();
 
   return (
     <div className="bg-slate-600 h-20 absolute bottom-0 right-0 left-0 flex flex-row  px-2 justify-between items-center">
@@ -36,11 +32,11 @@ export default function VideoController({vidref}: props) {
         <Rewind />
       </Button>
 
-      <Button onClick={handeplay} variant="ghost" size="icon">
+      <Button onClick={handleplay} variant="ghost" size="icon">
         <Play />
       </Button>
 
-      <Button variant="ghost" size="icon">
+      <Button onClick={handlepause} variant="ghost" size="icon">
         <Square />
       </Button>
 
@@ -76,7 +72,11 @@ export default function VideoController({vidref}: props) {
         </Button>
       </div>
 
-      <Button variant={"ghost"} size={"icon"} onClick={() => opendialog(setvideopath)}>
+      <Button
+        variant={"ghost"}
+        size={"icon"}
+        onClick={() => opendialog(setvideopath)}
+      >
         <LibraryBig />
       </Button>
 
